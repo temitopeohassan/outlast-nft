@@ -11,12 +11,6 @@ import MintNFT from "./components/MintNFT";
 import { useAccount, useConnect } from "wagmi";
 import { farcasterFrame } from '@farcaster/frame-wagmi-connector';
 
-type FrameData = {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-};
 
 export default function App() {
   const { setFrameReady, isFrameReady, context } = useMiniKit();
