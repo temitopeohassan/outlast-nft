@@ -18,7 +18,7 @@ export default function App() {
   const { isConnected, address } = useAccount();
   const { connect } = useConnect();
 
-  const addFrame = useAddFrame();
+  const { addFrame } = useAddFrame();
 
   // Initialize frame connector
   const frameConnector = useMemo(() => farcasterFrame(), []);
@@ -47,7 +47,8 @@ export default function App() {
   const handleAddFrame = useCallback(async () => {
     try {
       console.log("Adding frame...");
-      const result = await addFrame();
+      const frame = { id: "your-frame-id" }; // replace with your actual frame data
+      const result = await addFrame(frame);
       console.log("Frame added:", result);
       setFrameAdded(Boolean(result));
     } catch (error) {
