@@ -53,12 +53,6 @@ export default function App() {
   const handleAddFrame = useCallback(async () => {
     try {
       console.log("Adding frame...");
-      const frameData: FrameData = {
-        id: 'baseafricachristmasnft',
-        title: 'Base Africa Christmas NFT',
-        description: 'Mint your Base Africa Christmas NFT',
-        image: process.env.NEXT_PUBLIC_ICON_URL || '',
-      };
       const result = await addFrame();
       console.log("Frame added:", result);
       setFrameAdded(Boolean(result));
