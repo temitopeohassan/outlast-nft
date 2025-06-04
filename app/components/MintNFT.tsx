@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Button } from './Button'
 import { Card } from './Card'
 import { Icon } from './Icon'
+import { sdk } from '@farcaster/frame-sdk'
 
 
 const NFT_ADDRESS = '0x18be51d51f7dcC79fE037817b4bfb5E9cE09f784'
@@ -123,13 +124,13 @@ export default function MintForm() {
     }
   }, [isSuccess, hasNFT, address, publicClient])
 
-  const handleShareOnFarcaster = () => {
-    window.open(
-      `https://warpcast.com/~/compose?text=I just minted my Base Africa Christmas NFT! 🎄 https://baseafricachristmasnft.vercel.app/`,
-      '_blank',
-      'noopener,noreferrer'
-    )
-  }
+  const handleShareOnFarcaster = async () => {
+    await sdk.actions.composeCast({
+      text: "Mint Your Outlast NFT",
+      embeds: ["https://farcaster.xyz/~/mini-apps/launch?domain=outlast-nft.vercel.app"]
+    });
+  };
+
 
   return (
     <div className="flex flex-col gap-8 w-full max-w-[600px]">
@@ -137,9 +138,9 @@ export default function MintForm() {
       <Card className="w-full bg-[var(--app-card-bg)] border border-[var(--app-card-border)] p-8">
         <div className="relative w-full aspect-square">
           <Image
-            src={NFT_IMAGE_URL}
-            width={600} 
-            height={400}
+            src="/image.png"
+            width={113} 
+            height={113}
             alt="Base Africa Christmas NFT"
             style={{ objectFit: 'contain' }}
             priority
