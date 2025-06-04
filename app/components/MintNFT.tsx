@@ -210,7 +210,7 @@ export default function MintForm() {
               <p className="text-sm text-[var(--ock-text-error)] text-center block">
                 Your wallet is not whitelisted. Please{' '}
                 <Link 
-                  href="/GetWhitelisted"
+                  href="/GetWhitelist"
                   className="text-[var(--app-accent)] hover:text-[var(--app-accent-hover)] underline"
                 >
                   get whitelisted
